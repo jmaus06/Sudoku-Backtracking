@@ -1,6 +1,5 @@
 //Sudoku Solver by Joel
 //1/9/20
-
 #include <iostream>
 #include "sudoku.h"
 using std::cout; using std::cin; using std::endl;
@@ -32,8 +31,7 @@ int main() {
 	cout << "When entering numbers, make sure to put a space \n";
 	cout << "between each number.\n";
 	
-	getPuzzleBoard(number,noChangeIt); //user inputs initial state
-	
+	getPuzzleBoard(number,noChangeIt); //user inputs initial state	
 	solveIt(curCube, number, row, col, box, solved, noChangeIt, count); //solve function
 	cout << "SOLVED!!!\n\n";
 	cout << endl << "It took " << count << " tries.\n";
@@ -153,7 +151,6 @@ void solveIt(int currentCube, int num[][10], int ro, int co, int bo, bool solved
 						}
 					} //end of keepgoingback loop
 				} while (noChange[currentCube] == true);
-
 				}
 		}
 		++countIt; //tracks total tries
@@ -168,7 +165,6 @@ void solveIt(int currentCube, int num[][10], int ro, int co, int bo, bool solved
 		cout << endl;		
 		solvedIt = true;
 }
-
 bool checkRow(int row, int col, int box, int num[][10]) { //see if number exists in row	
 	for (int x = 1; x <= 9; ++x) {
 		//if current space matches ANY space
@@ -178,8 +174,6 @@ bool checkRow(int row, int col, int box, int num[][10]) { //see if number exists
 	}
 	return true;
 }
-
-
 bool checkCol(int row, int col, int box, int num[][10]) { //see if number exists in column
 	for (int x = 1; x <= 9; ++x) {
 		//if current space matches ANY space
@@ -189,7 +183,6 @@ bool checkCol(int row, int col, int box, int num[][10]) { //see if number exists
 	}
 	return true;
 }
-
 bool checkBox(int row, int col, int box, int num[][10]) {	
 	switch (box) { //checks if the spot is safe 
 	case 1:
@@ -317,21 +310,18 @@ bool onRowBoxBegin(int row, int col, int currentCube) { //beginning of row and b
 		return true;
 	else
 		return false;
-
 }
 bool onRowBegin(int row, int col, int currentCube) { //beginning of row only
 	if (col == 1)
 		return true;
 	else
 		return false;
-
 }
 bool onBoxBegin(int row, int col, int currentCube) { //beginning of box
 	if ((currentCube - 1) % 3 == 0)
 		return true;
 	else
 		return false;
-
 }
 void getPuzzleBoard(int num[][10], bool noChange[]) { //get initial values from user
 	int x;
@@ -344,8 +334,7 @@ void getPuzzleBoard(int num[][10], bool noChange[]) { //get initial values from 
 			if (num[x][y] > 0)
 				noChange[curSpace] = true; 
 			else
-				noChange[curSpace] = false; //if a number is entered, restrict space
-			
+				noChange[curSpace] = false; //if a number is entered, restrict space			
 			++curSpace;
 		}
 	}
