@@ -1,11 +1,7 @@
-//Sudoku Solver by Joel
-//1/9/20
+//Sudoku Solver by Joel 1/9/20
 #include <iostream>
 #include "sudoku.h"
 using std::cout; using std::cin; using std::endl;
-
-//main program
-
 int main() {
 	bool solved = false;
 	int curCube = 1;
@@ -78,7 +74,6 @@ void solveIt(int currentCube, int num[][10], int ro, int co, int bo, bool solved
 				} while (noChange[currentCube] == true);
 					//repeat until currentCube is NOT restricted
 		}
-
 		else {    //if it does NOT meet requirements	
 				
 				if ((num[ro][co] < 9) && (noChange[currentCube] == false))   //if less than 9
@@ -104,7 +99,6 @@ void solveIt(int currentCube, int num[][10], int ro, int co, int bo, bool solved
 							}
 							else if ((noChange[currentCube] == false) && (num[ro][co] == 9))
 								keepgoingback = true;
-
 						}	
 						else if (onRowBegin(ro, co, currentCube)) { //at beginning of row
 							if (noChange[currentCube] == false) //resets cube before advancing
